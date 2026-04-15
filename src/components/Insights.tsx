@@ -22,7 +22,7 @@ export default function Insights() {
     // Fetching from a free news/dev API for dynamic insights.
     const fetchArticles = async () => {
       try {
-        const response = await fetch('https://dev.to/api/articles?tag=webdev&state=fresh&per_page=6');
+        const response = await fetch('https://dev.to/api/articles?tag=webdev&state=fresh&per_page=8');
         if (response.ok) {
           const data = await response.json();
           setArticles(data);
