@@ -145,7 +145,7 @@ export default function HomePage() {
   }, []);
 
   // High-Ticket Application Form Link
-  const GOOGLE_FORM_URL = "https://forms.gle/YOUR_GOOGLE_FORM_LINK"; // Apni Google Form link yahan paste karein
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScNgS5S3A6ZTSChbxEWcfVLBT66xKMuHDKngrHQ5Nf6TRDXRg/viewform?usp=publish-editor"; // Apni Google Form link yahan paste karein
 
   return (
     <>
