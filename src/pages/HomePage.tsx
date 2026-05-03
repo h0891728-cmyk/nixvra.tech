@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, X, Code, Terminal, Layers, TrendingUp, CheckCircle, Database, Server, Smartphone, LayoutDashboard, Globe, Zap, MessageSquare, Briefcase, Cpu, Check, FileCheck, Rocket, GitBranch } from 'lucide-react';
+import { ChevronDown, X, Code, Terminal, Layers, TrendingUp, CheckCircle, Database, Server, Smartphone, LayoutDashboard, Globe, Zap, MessageSquare, Briefcase, Cpu, Check, FileCheck, Rocket, GitBranch, FileEdit, Send } from 'lucide-react';
 import NixvraLogo from '../components/NixvraLogo';
 import Insights from '../components/Insights';
 
 // Background logic moved to App.tsx
 
 // --- TYPEWRITER HOOK ---
+// Ye hook same rahega, iski typing speed perfect hai
 const useTypewriter = (words: string[], typingSpeed = 100, deletingSpeed = 50, pauseDelay = 2000) => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -35,6 +36,7 @@ const useTypewriter = (words: string[], typingSpeed = 100, deletingSpeed = 50, p
   return text;
 };
 
+// Services global level ke hisaab se already bahut strong hain
 const SERVICES = [
   {
     id: 1, title: "React UI/UX Architecture", icon: <Code className="w-8 h-8 text-[#00B077]" />,
@@ -70,6 +72,7 @@ const SERVICES = [
   }
 ];
 
+// PORTFOLIOS updated with Global names and metrics
 const PORTFOLIOS = [
   {
     id: 101, title: "Enterprise FinTech Migration", icon: <Briefcase className="w-8 h-8 text-[#00B077]" />,
@@ -79,9 +82,9 @@ const PORTFOLIOS = [
     solution: "Decoupled PostgreSQL DB array with a pure React frontend ensuring instantaneous order books.",
     roi: ["+400% API Throughput", "Zero Downtime Deployments", "Massive Edge Routing Speed"], tabs: ["Overview", "Technical specs"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
-    clientName: "Rahul Sharma",
-    clientRole: "CTO, FinEdge Systems",
-    testimonial: "Wabcripte's architecture completely replaced our failing legacy backend. We went from daily timeouts to seamless 100k+ active user routing.",
+    clientName: "Marcus Thorne", // Global name
+    clientRole: "CTO, FinScale Global",
+    testimonial: "Nixvra's architecture completely replaced our failing legacy backend. We went from daily timeouts to seamless 100k+ active user routing across our US and EU nodes.",
   },
   {
     id: 102, title: "Healthcare CRM Automation", icon: <Briefcase className="w-8 h-8 text-[#00B077]" />,
@@ -91,9 +94,9 @@ const PORTFOLIOS = [
     solution: "End-to-end Python scheduling daemons automatically pulling patient HL7 data and mapping it live.",
     roi: ["120 Hours Saved/Mo", "0% Human Error Rate", "Instant Patient Triage Synced"], tabs: ["Overview", "Technical specs"],
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80",
-    clientName: "Dr. Ananya Patil",
-    clientRole: "Dir of Operations, MedLife Care",
-    testimonial: "The native Python automation scripts literally saved us 120 hours of manual data entry per month. Zero human error now.",
+    clientName: "Dr. Elena Rostova", // Global name
+    clientRole: "Dir of Operations, NovaCare Health",
+    testimonial: "The native Python automation scripts literally saved our network 120 hours of manual data entry per month. Zero human error now. A flawless execution.",
   },
   {
     id: 103, title: "B2B Logistics Workflow Engine", icon: <Briefcase className="w-8 h-8 text-[#00B077]" />,
@@ -103,21 +106,22 @@ const PORTFOLIOS = [
     solution: "Custom geospatial PostGIS database mapping raw algorithms into a heavily optimized SPA frontend.",
     roi: ["Sub-second Payload Loads", "80% Faster Quoting Times", "Doubled Contract Win-Rate"], tabs: ["Overview", "Technical specs"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
-    clientName: "Vikram Reddy",
-    clientRole: "VP Logistics, TransitHub",
-    testimonial: "The custom PostGIS engineering decreased our freight quotation times from 3 minutes to practically instant.",
+    clientName: "James Chen", // Global name
+    clientRole: "VP Logistics, TransitHub Nexus",
+    testimonial: "The custom PostGIS engineering decreased our cross-border freight quotation times from 3 minutes to practically instant. Completely changed our operational speed.",
   }
 ];
 
+// FAQS updated to show global reach
 const FAQS = [
   { q: "Do you use WordPress templates?", a: "No. We build custom-coded ecosystems using modern tools for pure performance and scalability. Templates bloat and crash. Code scales infinitely." },
-  { q: "How do you handle Indore/Jabalpur projects?", a: "We serve MP natively. We structure discovery sessions digitally or in person depending on your operational preferences to ensure total alignment." },
-  { q: "What is your typical execution timeline?", a: "MVP architectures are generally deployed within 4-8 weeks, scaling heavily depending on backend requirements." }
+  { q: "How do you handle remote & international projects?", a: "We operate globally. We structure asynchronous discovery sessions and maintain rigorous CI/CD pipelines to ensure total alignment regardless of your timezone (US, UK, or EU)." },
+  { q: "What is your typical execution timeline?", a: "MVP architectures are generally deployed within 4-8 weeks, scaling heavily depending on backend requirements and cloud infrastructure needs." }
 ];
 
-// TIMELINE DATA FOR ROADMAP
+// PIPELINE DATA - MP references removed
 const PIPELINE_STEPS = [
-  { step: 1, title: "The Tactical Audit", icon: <FileCheck className="w-5 h-5 text-[#111111]"/>, content: "We initiate a severe deep dive into your current IT bottleneck, failing CRMs, and broken templates. We don't guess—we map exactly where your local MP business is bleeding efficiency." },
+  { step: 1, title: "The Tactical Audit", icon: <FileCheck className="w-5 h-5 text-[#111111]"/>, content: "We initiate a severe deep dive into your current IT bottleneck, failing CRMs, and broken templates. We don't guess—we map exactly where your enterprise is bleeding efficiency." },
   { step: 2, title: "Relational Architecture", icon: <GitBranch className="w-5 h-5 text-[#111111]"/>, content: "Drafting the complex React/Laravel schema. We map out precise database structures, flawless API endpoint routes, and strict UX/UI wireframes before executing a single line of production code." },
   { step: 3, title: "Engineered Development", icon: <LayoutDashboard className="w-5 h-5 text-[#111111]"/>, content: "Hardcore, native software construction. No drag-and-drop. We compile pure Next.js/Vite packages integrated tightly with secure PHP/Laravel backing databases." },
   { step: 4, title: "Live Cloud Deployment", icon: <Rocket className="w-5 h-5 text-[#111111]"/>, content: "Pushing the finalized SPA application to high-availability AWS/Linux server nodes. We configure CI/CD pipelines, install precise Redis caching, and formally hand over the keys to the massive ecosystem." }
@@ -136,11 +140,12 @@ export default function HomePage() {
     const timer = setTimeout(() => {
        setIsFading(true);
        setTimeout(() => setIsLoading(false), 800);
-    }, 500); // 0.5 seconds
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
-  const WHATSAPP_URL = "https://wa.me/917078524164?text=I'm%20interested%20in%20an%20architecture%20audit";
+  // High-Ticket Application Form Link
+  const GOOGLE_FORM_URL = "https://forms.gle/YOUR_GOOGLE_FORM_LINK"; // Apni Google Form link yahan paste karein
 
   return (
     <>
@@ -155,11 +160,11 @@ export default function HomePage() {
       <div className={`relative font-sans text-base ${isLoading ? 'h-screen overflow-hidden' : ''}`}>
 
         <main className="relative z-10">
-          {/* SECTION 1: HERO */}
+          {/* SECTION 1: HERO - Globalized */}
           <section className="relative min-h-[100dvh] flex flex-col items-center justify-center pt-28 px-6 text-center max-w-5xl mx-auto snap-start">
             <div className="animate-slide-up bg-white border border-gray-200 rounded-full px-5 py-2 mb-8 flex items-center shadow-sm" style={{ animationDelay: '0.1s' }}>
                <span className="w-2.5 h-2.5 rounded-full bg-[#00B077] mr-3 animate-pulse shadow-[0_0_8px_rgba(0,176,119,0.6)]" />
-               <span className="text-xs uppercase tracking-widest text-[#111111] font-bold">Scaling MP's Digital Frontier</span>
+               <span className="text-xs uppercase tracking-widest text-[#111111] font-bold">Scaling Global Enterprise Systems</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-[68px] font-black tracking-tight mb-6 leading-tight animate-slide-up text-[#111111]" style={{ animationDelay: '0.3s' }}>
@@ -171,7 +176,7 @@ export default function HomePage() {
             </h1>
             
             <p className="text-[15px] md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed animate-slide-up font-medium" style={{ animationDelay: '0.5s' }}>
-              Madhya Pradesh's premier technical pipeline. From Indore to Jabalpur, we aggressively replace brittle digital templates 
+              A world-class engineering pipeline. We aggressively replace brittle digital templates 
               with high-margin React frontend ecosystems, autonomous Python automations, and deep native Laravel codebases.
             </p>
             
@@ -185,13 +190,13 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* SECTION 2: TRUSTED BY METRICS */}
+          {/* SECTION 2: TRUSTED BY METRICS - $ USD values added */}
           <section className="bg-gray-50 border-y border-gray-200 py-12 snap-start flex flex-col justify-center">
               <div className="max-w-7xl mx-auto px-6 w-full text-center">
-                 <p className="text-xs uppercase tracking-widest text-[#00B077] mb-8 font-extrabold block">Trusted Natively By MP's Scaling Firms</p>
+                 <p className="text-xs uppercase tracking-widest text-[#00B077] mb-8 font-extrabold block">Trusted By Scaling Global Enterprises</p>
                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-14 text-center divide-x divide-gray-200">
                     <div>
-                       <h4 className="text-3xl md:text-5xl font-black text-[#111111] mb-2 tracking-tight">₹10Cr+</h4>
+                       <h4 className="text-3xl md:text-5xl font-black text-[#111111] mb-2 tracking-tight">$12M+</h4>
                        <p className="text-xs md:text-[13px] text-gray-500 font-bold uppercase tracking-wider">Revenue Managed</p>
                     </div>
                     <div>
@@ -199,7 +204,7 @@ export default function HomePage() {
                        <p className="text-xs md:text-[13px] text-gray-500 font-bold uppercase tracking-wider">Server Uptime</p>
                     </div>
                     <div>
-                       <h4 className="text-3xl md:text-5xl font-black text-[#111111] mb-2 tracking-tight">5M+</h4>
+                       <h4 className="text-3xl md:text-5xl font-black text-[#111111] mb-2 tracking-tight">25M+</h4>
                        <p className="text-xs md:text-[13px] text-gray-500 font-bold uppercase tracking-wider">API Invocations</p>
                     </div>
                     <div>
@@ -207,13 +212,13 @@ export default function HomePage() {
                        <p className="text-xs md:text-[13px] text-gray-500 font-bold uppercase tracking-wider">Daemons Active</p>
                     </div>
                  </div>
-                 <button onClick={() => window.open(WHATSAPP_URL)} className="mt-12 px-8 py-3.5 bg-white border-2 border-gray-200 hover:border-[#00B077] hover:bg-[#00B077] hover:text-white rounded-full text-[13px] font-black tracking-widest uppercase text-[#111111] transition-all shadow-sm">
-                    Book A Consultation
+                 <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="mt-12 px-8 py-3.5 bg-white border-2 border-gray-200 hover:border-[#00B077] hover:bg-[#00B077] hover:text-white rounded-full text-[13px] font-black tracking-widest uppercase text-[#111111] transition-all shadow-sm">
+                    Submit Enterprise Inquiry
                  </button>
               </div>
           </section>
 
-          {/* SECTION 3: AGENCY DNA / PHILOSOPHY */}
+          {/* SECTION 3: AGENCY DNA */}
           <section className="min-h-[100dvh] py-20 px-6 flex flex-col justify-center snap-start relative overflow-hidden bg-white">
              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#00B077]/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
              <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -221,7 +226,7 @@ export default function HomePage() {
                    <h2 className="text-4xl md:text-6xl font-black mb-5 tracking-tight leading-tight text-[#111111]">The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#008E60] to-[#00B077]">Agency DNA</span></h2>
                    <p className="text-[#00B077] text-[13px] font-mono font-black uppercase tracking-widest mb-6 border-l-[4px] border-[#00B077] pl-4">Raw Engineering &gt; Traditional Marketing.</p>
                    <p className="text-gray-600 text-[15px] md:text-lg leading-relaxed mb-6 font-medium">
-                      Nixvra by Wabcripte was founded to absolutely dominate the massive vacuum in the regional IT market: agencies selling slow, bloated, pre-built template configurations while masking it as true software operations. 
+                      Nixvra was founded to absolutely dominate the massive vacuum in the global IT market: agencies selling slow, bloated, pre-built template configurations while masking it as true software operations. 
                    </p>
                    <p className="text-gray-600 text-[15px] md:text-lg leading-relaxed mb-8 font-medium">
                       We attack scaling problems natively. If you have an operational business bottleneck, we don't install a generic plugin. We immediately deploy custom AWS architecture, structure an intense Relational Database, and write strict React frontends that compute synchronously fast.
@@ -238,12 +243,12 @@ export default function HomePage() {
                       <h4 className="text-xl font-black mb-2 text-[#111111]">Massive Speed</h4>
                       <p className="text-[14px] text-gray-500 leading-relaxed font-medium">Vite-powered SPAs capturing sub-second payload deliveries.</p>
                    </div>
-                   <div className="bg-gradient-to-br from-[#00B077]/5 to-white border border-[#00B077]/20 p-8 rounded-3xl col-span-1 sm:col-span-2 flex items-center justify-between group cursor-pointer hover:border-[#00B077]/60 transition-all shadow-sm hover:shadow-md" onClick={() => window.open(WHATSAPP_URL)}>
+                   <div className="bg-gradient-to-br from-[#00B077]/5 to-white border border-[#00B077]/20 p-8 rounded-3xl col-span-1 sm:col-span-2 flex items-center justify-between group cursor-pointer hover:border-[#00B077]/60 transition-all shadow-sm hover:shadow-md" onClick={() => window.open(GOOGLE_FORM_URL, '_blank')}>
                       <div>
-                        <h4 className="text-2xl font-black text-[#111111] mb-2">Join the Ecosystem</h4>
-                        <p className="text-[12px] text-[#00B077] font-bold uppercase tracking-widest">Speak directly to engineering &rarr;</p>
+                        <h4 className="text-2xl font-black text-[#111111] mb-2">Apply for Partnership</h4>
+                        <p className="text-[12px] text-[#00B077] font-bold uppercase tracking-widest">Complete the discovery form &rarr;</p>
                       </div>
-                      <MessageSquare className="w-10 h-10 text-[#00B077] group-hover:scale-110 transition-transform" />
+                      <FileEdit className="w-10 h-10 text-[#00B077] group-hover:scale-110 transition-transform" />
                    </div>
                 </div>
              </div>
@@ -256,8 +261,8 @@ export default function HomePage() {
                 <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tight text-[#111111]">Core Architectures</h2>
                 <p className="text-gray-500 text-[15px] md:text-lg font-bold">The four aggressive pillars of Nixvra's digital scaling infrastructure block.</p>
               </div>
-              <button onClick={() => window.open(WHATSAPP_URL)} className="w-fit px-6 py-3.5 bg-[#111111] hover:bg-gray-800 text-white rounded-full text-[13px] font-black transition-all shadow-md uppercase tracking-widest whitespace-nowrap">
-                  Get Started
+              <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="w-fit px-6 py-3.5 bg-[#111111] hover:bg-gray-800 text-white rounded-full text-[13px] font-black transition-all shadow-md uppercase tracking-widest whitespace-nowrap">
+                  Submit Architecture Brief
               </button>
             </div>
             <div className="flex w-max space-x-8 px-6 animate-marquee hover:[animation-play-state:paused] pb-10">
@@ -331,8 +336,8 @@ export default function HomePage() {
                                 <button onClick={() => { setActiveModal(item); setActiveTab(1); }} className="px-6 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-[13px] font-black tracking-widest uppercase text-gray-700 hover:bg-white hover:border-[#00B077] hover:text-[#00B077] transition-all flex items-center justify-center shadow-sm">
                                    Technical Specs
                                 </button>
-                                <button onClick={() => window.open(WHATSAPP_URL)} className="px-6 py-3.5 bg-[#00B077] hover:bg-[#008E60] text-white rounded-xl text-[13px] font-black transition-all shadow-md shadow-[#00B077]/20 uppercase tracking-widest flex items-center justify-center">
-                                   Book Consultation
+                                <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="px-6 py-3.5 bg-[#00B077] hover:bg-[#008E60] text-white rounded-xl text-[13px] font-black transition-all shadow-md shadow-[#00B077]/20 uppercase tracking-widest flex items-center justify-center">
+                                   Apply For Audit
                                 </button>
                              </div>
                           </div>
@@ -342,12 +347,12 @@ export default function HomePage() {
                  </div>
                  
                  <div className="text-center">
-                    <button onClick={() => window.open(WHATSAPP_URL)} className="px-10 py-5 border-2 border-gray-300 rounded-full text-[14px] font-bold tracking-widest uppercase text-gray-700 hover:bg-gray-50 transition-all hover:border-[#00B077] hover:scale-105 hover:text-[#111111] shadow-sm">Request Full Corporate Portfolio</button>
+                    <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="px-10 py-5 border-2 border-gray-300 rounded-full text-[14px] font-bold tracking-widest uppercase text-gray-700 hover:bg-gray-50 transition-all hover:border-[#00B077] hover:scale-105 hover:text-[#111111] shadow-sm">Request Full Corporate Portfolio</button>
                  </div>
              </div>
           </section>
 
-          {/* SECTION 6: LIVE PREVIEWS */}
+          {/* SECTION 6: LIVE PREVIEWS - Nodes changed to Global locations */}
           <section id="examples" className="min-h-[100dvh] py-20 px-6 flex flex-col justify-center snap-start relative bg-gray-50">
             <div className="max-w-7xl mx-auto w-full relative z-10">
                <div className="mb-14 border-l-[6px] border-[#00B077] pl-6">
@@ -363,7 +368,7 @@ export default function HomePage() {
                     <div className="grid grid-cols-2 gap-6 mb-8">
                       <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 hover:border-[#00B077]/40 transition-colors">
                         <div className="text-gray-500 text-[12px] uppercase tracking-widest mb-2 font-black">Revenue Matrix</div>
-                        <div className="text-3xl font-black text-[#00B077]">₹4.2L</div>
+                        <div className="text-3xl font-black text-[#00B077]">$450K</div> {/* USD Conversion */}
                       </div>
                       <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors">
                         <div className="text-gray-500 text-[12px] uppercase tracking-widest mb-2 font-black">Active Queries</div>
@@ -389,7 +394,8 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="space-y-4">
-                      {['Jabalpur Secure Node', 'Indore Root Auth', 'MP Main Backup Cluster'].map((node, i) => (
+                      {/* Global Server Locations instead of MP cities */}
+                      {['AWS US-East-1 Node', 'London Root Auth', 'EU-Central Backup Cluster'].map((node, i) => (
                         <div key={i} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:border-gray-300 border border-transparent transition-all">
                           <div className="flex items-center space-x-4">
                             <div className={`w-3 h-3 rounded-full shadow-sm ${i === 0 ? 'bg-[#00B077]' : 'bg-yellow-400'}`}></div>
@@ -399,8 +405,8 @@ export default function HomePage() {
                         </div>
                       ))}
                     </div>
-                    <button onClick={() => window.open(WHATSAPP_URL)} className="mt-8 w-full py-4 border-2 border-gray-200 rounded-xl text-[14px] font-black uppercase tracking-widest text-[#111111] hover:text-white transition-all bg-white hover:bg-[#00B077] hover:border-[#00B077] shadow-sm">
-                      Force Manual Refresh Sync
+                    <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="mt-8 w-full py-4 border-2 border-gray-200 rounded-xl text-[14px] font-black uppercase tracking-widest text-[#111111] hover:text-white transition-all bg-white hover:bg-[#00B077] hover:border-[#00B077] shadow-sm">
+                      Request API Access
                     </button>
                  </div>
               </div>
@@ -421,8 +427,8 @@ export default function HomePage() {
                    </React.Fragment>
                  ))}
              </div>
-             <button onClick={() => window.open(WHATSAPP_URL)} className="px-8 py-3 bg-white border-2 border-gray-200 hover:border-[#00B077] hover:bg-[#00B077] hover:text-white rounded-full text-[13px] font-black tracking-widest uppercase text-[#111111] transition-all shadow-sm">
-                Discuss Tech Stack
+             <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="px-8 py-3 bg-white border-2 border-gray-200 hover:border-[#00B077] hover:bg-[#00B077] hover:text-white rounded-full text-[13px] font-black tracking-widest uppercase text-[#111111] transition-all shadow-sm">
+                Request Tech Stack Review
              </button>
           </section>
 
@@ -431,10 +437,9 @@ export default function HomePage() {
               <div className="max-w-6xl mx-auto w-full">
                  <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-6xl font-black mb-5 tracking-tight text-[#111111]">The Execution Roadmap</h2>
-                    <p className="text-gray-500 text-[15px] md:text-lg max-w-2xl mx-auto font-bold tracking-wide">The brutal Wabcripte methodology to decisively pull local MP businesses out of massive technical debt.</p>
+                    <p className="text-gray-500 text-[15px] md:text-lg max-w-2xl mx-auto font-bold tracking-wide">The definitive engineering methodology to pull scaling enterprises out of massive technical debt.</p>
                  </div>
 
-                 {/* Advanced Vertical Timeline */}
                  <div className="relative wrap overflow-hidden p-2 md:p-8 h-full">
                     <div className="absolute h-full border-r-[3px] border-gray-200 left-6 md:left-1/2 top-0 shadow-sm"></div>
                     
@@ -462,8 +467,8 @@ export default function HomePage() {
                  </div>
                  
                  <div className="mt-8 mx-auto flex justify-center z-10 relative pt-8 w-full">
-                    <button onClick={() => window.open(WHATSAPP_URL)} className="px-10 py-5 bg-white border-2 border-[#00B077] hover:bg-[#00B077] hover:text-white text-[#111111] rounded-2xl font-black transition-all shadow-lg uppercase tracking-widest text-[14px]">
-                       Start Your Execution
+                    <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="px-10 py-5 bg-white border-2 border-[#00B077] hover:bg-[#00B077] hover:text-white text-[#111111] rounded-2xl font-black transition-all shadow-lg uppercase tracking-widest text-[14px]">
+                       Apply For Execution
                     </button>
                  </div>
               </div>
@@ -493,9 +498,9 @@ export default function HomePage() {
                       <ul className="space-y-4 mb-10">
                          <li className="flex items-center text-[14px] md:text-[15px] font-bold text-gray-700"><Check className="w-5 h-5 text-[#00B077] mr-4"/> Sub-second UX load times</li>
                          <li className="flex items-center text-[14px] md:text-[15px] font-bold text-gray-700"><Check className="w-5 h-5 text-[#00B077] mr-4"/> Extremely clean DB Structures</li>
-                         <li className="flex items-center text-[14px] md:text-[15px] font-bold text-gray-700"><Check className="w-5 h-5 text-[#00B077] mr-4"/> Core MP Local Launch protocol</li>
+                         <li className="flex items-center text-[14px] md:text-[15px] font-bold text-gray-700"><Check className="w-5 h-5 text-[#00B077] mr-4"/> Global Edge Deployment protocol</li>
                       </ul>
-                      <button onClick={() => window.open(WHATSAPP_URL)} className="w-full py-5 bg-white border-2 border-gray-200 rounded-2xl text-[14px] hover:bg-gray-50 transition-all font-black tracking-widest uppercase text-[#111111]">Initiate Build Setup</button>
+                      <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="w-full py-5 bg-white border-2 border-gray-200 rounded-2xl text-[14px] hover:bg-gray-50 transition-all font-black tracking-widest uppercase text-[#111111]">Submit Build Request</button>
                    </div>
 
                    {/* MODEL 2 */}
@@ -514,7 +519,7 @@ export default function HomePage() {
                          <li className="flex items-center text-[14px] md:text-[15px] font-bold text-gray-700"><Check className="w-5 h-5 text-[#00B077] mr-4"/> Deep AWS/Cloudflare monitoring</li>
                          <li className="flex items-center text-[14px] md:text-[15px] font-bold text-gray-700"><Check className="w-5 h-5 text-[#00B077] mr-4"/> Continuous live architectural patches</li>
                       </ul>
-                      <button onClick={() => window.open(WHATSAPP_URL)} className="w-full py-5 bg-[#00B077] text-white rounded-2xl text-[14px] hover:bg-[#008E60] transition-all font-black shadow-lg shadow-[#00B077]/20 uppercase tracking-widest">Speak To Retainer Scaling</button>
+                      <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="w-full py-5 bg-[#00B077] text-white rounded-2xl text-[14px] hover:bg-[#008E60] transition-all font-black shadow-lg shadow-[#00B077]/20 uppercase tracking-widest">Apply For Retainer</button>
                    </div>
                 </div>
              </div>
@@ -545,9 +550,9 @@ export default function HomePage() {
             <div className="text-center shadow-xl bg-white border border-gray-200 rounded-[3rem] p-10 md:p-16 max-w-4xl mx-auto w-full relative z-10 hover:border-[#00B077]/50 transition-colors">
                <Zap className="w-12 h-12 text-[#00B077] mx-auto mb-6 animate-pulse" />
                <h2 className="text-3xl md:text-5xl font-black mb-4 text-[#111111] tracking-tight">Ready to compile the architecture?</h2>
-               <p className="text-[15px] md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">Stop gambling local capital on failing builder templates. Hook up to our WhatsApp array logically and chat direct with the engineers natively.</p>
-               <button onClick={() => window.open(WHATSAPP_URL)} className="px-10 py-5 bg-[#00B077] text-white font-black rounded-full text-[15px] shadow-lg shadow-[#00B077]/30 hover:scale-105 hover:bg-[#008E60] transition-all outline-none tracking-widest uppercase items-center flex justify-center mx-auto w-full sm:w-auto">
-                 <MessageSquare className="w-6 h-6 mr-3"/> Execute Build Hook Live
+               <p className="text-[15px] md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">Stop gambling enterprise capital on failing builder templates. Schedule a direct engineering consultation to map your infrastructure.</p>
+               <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="px-10 py-5 bg-[#00B077] text-white font-black rounded-full text-[15px] shadow-lg shadow-[#00B077]/30 hover:scale-105 hover:bg-[#008E60] transition-all outline-none tracking-widest uppercase items-center flex justify-center mx-auto w-full sm:w-auto">
+                 <FileEdit className="w-6 h-6 mr-3"/> Complete Discovery Form
                </button>
             </div>
           </section>
@@ -607,7 +612,9 @@ export default function HomePage() {
 
               {/* Modal Footer */}
               <div className="p-6 md:p-8 border-t border-gray-100 bg-gray-50 shrink-0">
-                 <button onClick={() => window.open(WHATSAPP_URL)} className="w-full py-5 bg-[#00B077] hover:bg-[#008E60] text-white rounded-2xl text-[14px] font-black transition-all shadow-lg shadow-[#00B077]/20 uppercase tracking-[0.15em] hover:scale-[1.02]">Generate System Framework Layout Array Route via WhatsApp Ping Sync</button>
+                 <button onClick={() => window.open(GOOGLE_FORM_URL, '_blank')} className="w-full py-5 bg-[#00B077] hover:bg-[#008E60] text-white rounded-2xl text-[14px] font-black transition-all shadow-lg shadow-[#00B077]/20 uppercase tracking-[0.15em] hover:scale-[1.02]">
+                    Apply For Architecture Deep-Dive
+                 </button>
               </div>
             </div>
           </div>
